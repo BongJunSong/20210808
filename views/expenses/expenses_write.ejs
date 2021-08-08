@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="/js/expenses_write.js"></script>
+<html>
+
+<head>
+    <%- include('../partials/head/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../partials/top/nav.ejs') %>
+
+        <div class="container" style="margin:100px 26px -7px 396px;">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form action="/expenses_write" id="write" enctype="multipart/form-data"
+                                accept='image/jpg, image/png, image/jpeg' method="POST">
+                                <div class="form-group">
+                                    <label path="date">年／月／日</label>
+                                    <div class="input-item disp-moveing">
+                                        <input type="date" id="date" name="date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">行　　先</label>
+                                    <input path="content_subject" class='form-control' id="destination"
+                                        name="destination" />
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">交通費／経費</label>
+                                    <select path="content_subject" class='form-control' id="cost-kind" name="cost_kind">
+                                        <option value="自社への交通費">自社への交通費</option>
+                                        <option value="就業先への交通費">就業先への交通費</option>
+                                        <option value="経費">経費</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">片道／往復</label>
+                                    <select path="content_subject" class='form-control' id="trip-kind" name="trip-kind">
+                                        <option value="片道">片道</option>
+                                        <option value="往復">往復</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">用　件</label>
+                                    <input path="content_subject" class='form-control' id="reason" name="reason" />
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">乗車区間</label>
+                                    <input path="content_subject" class='form-control' id="section" name="section" />
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">交通機関</label>
+                                    <input path="content_subject" class='form-control' id="company" name="company" />
+                                </div>
+                                <div class="form-group">
+                                    <label path="content_subject">金　額</label>
+                                    <input path="content_subject" class='form-control' id="cost" name="cost" />
+                                </div>
+                                <div class="form-group" id="img">
+                                    <label path="upload_file">証憑添付</label>
+                                    <input type="file" path='upload_file' name="attachment" id="attachment" accept="image/heic,image/*,.pdf">
+                                </div>
+                                <div class="form-group">
+                                    <div class="text-right">
+                                        <button type="button" class='btn btn-primary'>作成</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+</body>
+
+</html>

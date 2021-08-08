@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top shadow-lg">
+  <a class="navbar-brand" href="/login">社員管理システム</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input type="hidden" id="auth" value="<%=authFlag%>" />
+
+  <div class="collapse navbar-collapse" id="navMenu">
+    <ul class="navbar-nav">
+      <% if(authFlag) { %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">勤怠管理</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/stamping">打刻</a>
+            <a class="dropdown-item" href="/stamping_check">勤務簿</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/expenses_write" class="nav-link">経費管理</a>
+        </li>
+        <% } %>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <% if(authFlag) { %>
+        <li class="nav-item">
+          <a href="/account_detail" class="nav-link">アカウント詳細情報</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">ログアウト</a>
+        </li>
+        <% } %>
+    </ul>
+  </div>
+</nav>

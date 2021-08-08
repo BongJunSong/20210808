@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="/js/stamping_check.js"></script>
+<html>
+
+<head>
+  <%- include('../partials/head/head.ejs') %>
+</head>
+
+<body>
+  <%- include('../partials/top/nav.ejs') %>
+
+    <form action="./stamping_check" id="stamping_check" method="get">
+      <div class="container" style="margin-top: 100px;">
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="input-item disp-moveing">
+              <h4 class="card-title">
+                <%= month %>
+              </h4>
+            </div>
+
+            <input type="hidden" id="now-month" value="<%= month %>">
+
+            <div class="form-group">
+              <div class="text-right">
+                <button type="submit" id="after-month" name="after_month" value="" class='btn btn-primary'>翌月</button>
+              </div>
+              <div class="text-left" style="margin-top: -40px;">
+                <button type="submit" id="prev-month" name="prev_month" value="" class='btn btn-primary'>前月</button>
+              </div>
+            </div>
+
+            <table class="table table-hover" id='board_list'>
+              <thead>
+                <tr>
+                  <th class="text-center d-none d-md-table-cell">日付</th>
+                  <th class="text-center d-none d-md-table-cell">出社</th>
+                  <th class="text-center d-none d-md-table-cell">退社</th>
+                  <th class="text-center d-none d-md-table-cell">ステータス</th>
+                  <th class="text-center d-none d-md-table-cell">稼働時間</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let i=0; i < datas.length; i++) { %>
+                  <tr>
+                    <td class="text-center d-none d-md-table-cell">
+                      <%= datas[i].stamping_date %>
+                    </td>
+                    <td class="text-center d-none d-md-table-cell">
+                      <a href="/stamping_detail?stampingDate=<%= datas[i].stamping_date %>">
+                        <%= datas[i].stamping_start %>
+                    </td></a>
+                    <td class="text-center d-none d-md-table-cell">
+                      <a href="/stamping_detail?stampingDate=<%= datas[i].stamping_date %>">
+                        <%= datas[i].stamping_end %>
+                    </td></a>
+                    <td class="text-center d-none d-md-table-cell">
+                      <%= datas[i].stamping_statas %></a>
+                    <td class="text-center d-none d-md-table-cell">
+                      <%= datas[i].workTime %>時間
+                    </td>
+                  </tr>
+                  <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+</body>
+
+</html>

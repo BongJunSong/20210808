@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="/js/stamping.js"></script>
+<html>
+
+<head>
+  <%- include('../partials/head/head.ejs') %>
+</head>
+
+<body>
+  <%- include('../partials/top/nav.ejs') %>
+
+    <form action="./stamping" id="stamping-form" method="post">
+      <div class="container" style="margin-top: 100px; width: 50%;">
+        <div class="card shadow">
+          <div class="card-body">
+            <h1 id="click" style="text-align: center; font-size: 70px;"></h1>
+            <p style="text-align: center; font-size: 20px;"><%= statas %></p>
+
+            <div class="form-group">
+              <textarea path="content_text" name="stamping_text" class="form-control" rows="10" style="resize:none" placeholder="備考"></textarea>
+            </div>
+
+            <input type="hidden" id="stamping-time" name="stamping_time" value="">
+
+            <% if(statas != "退社済") { %>
+              <div class="form-group" style="text-align: center;">
+                <button type="submit" id="stamping-btn" class='btn btn-primary'>打刻</button>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </form>
+</body>
+
+</html>

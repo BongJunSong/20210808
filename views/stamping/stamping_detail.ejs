@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="/js/stamping_detail.js"></script>
+<html>
+
+<head>
+    <%- include('../partials/head/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../partials/top/nav.ejs') %>
+
+        <form id="stamping-detail">
+            <div class="content" style="height: 550px; margin-top: 100px;">
+                <h4 class="card-title" style="text-align: center;">
+                    <%= obj_a_param.targetDate %>
+                </h4>
+
+                <div class="text-postion">
+                    <div class="text-postion">
+                        <label for="user-id" class="label-font-setting">社員番号</label>
+                        <div class="col-sm-9 row-position">
+                            <input type="text" id="user-id" name="user_id" value="<%= obj_a_param.userId %>"
+                                class="form-control input-width" readonly>
+                        </div>
+                    </div>
+
+                    <div class="text-postion" style="margin-top: -12px;">
+                        <label for="user-id" class="label-font-setting">出社時間</label>
+                        <div class="col-sm-9 row-position">
+                            <input type="text" id="stamping-start" name="stamping_start" value="<%= obj_a_param.stampingStart %>"
+                                class="form-control input-width" readonly>
+                        </div>
+                    </div>
+
+                    <div class="text-postion" style="margin-top: -12px;">
+                        <label for="user-id" class="label-font-setting">退社時間</label>
+                        <div class="col-sm-9 row-position">
+                            <input type="text" id="stamping-end" name="stamping-end" value="<%= obj_a_param.stampingEnd %>"
+                                class="form-control input-width" readonly>
+                        </div>
+                    </div>
+                </div>
+        </form>
+</body>
+
+</html>
